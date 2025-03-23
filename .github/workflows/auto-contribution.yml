@@ -2,7 +2,7 @@ name: Auto Contribution
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Trigger the action every 6 hours (UTC time)
+    - cron: '*/5 * * * *'  # Runs every 5 minutes
 
 jobs:
   auto-contribute:
