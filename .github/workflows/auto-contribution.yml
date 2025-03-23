@@ -1,0 +1,28 @@
+name: Auto Contribution
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Trigger the action every 6 hours (UTC time)
+
+jobs:
+  auto-contribute:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v2
+
+    - name: Set up Python environment
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Install Python dependencies (if any)
+
+    - name: Run the report generation and commit scripts
+      run: |
+        python scripts/generate_report.py  # Simulate work by generating the report
+        python scripts/commit_and_push.py  # Commit and push changes to GitHub
