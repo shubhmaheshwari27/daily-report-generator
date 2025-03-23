@@ -2,17 +2,17 @@ name: Auto Contribution
 
 on:
   schedule:
-    - cron: '* * * * *'  # This will run the workflow every 5 minutes for testing
+    - cron: "0 */6 * * *" # Runs every 6 hours
 
 jobs:
   run_report:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu image for the runner
+    runs-on: ubuntu-latest # Use the latest Ubuntu image for the runner
 
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v2
-      
+
       # Step 2: Run the script to generate the report
       - name: Run script to generate report
         run: |
